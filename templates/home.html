@@ -1,1 +1,59 @@
-<h1>Hello World</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boston House Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        form {
+            width: 350px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Boston House Price Prediction</h2>
+
+    <form action="/predict" method="POST">
+
+        <!-- Add placeholders for each feature in your dataset -->
+
+        <input type="text" name="CRIM" placeholder="CRIM (Per capita crime rate)" required>
+        <input type="text" name="ZN" placeholder="ZN (Residential land zoned)" required>
+        <input type="text" name="INDUS" placeholder="INDUS (Non-retail business acres)" required>
+        <input type="text" name="CHAS" placeholder="CHAS (Charles River dummy)" required>
+        <input type="text" name="NOX" placeholder="NOX (Nitric oxide concentration)" required>
+        <input type="text" name="RM" placeholder="RM (Avg rooms per dwelling)" required>
+        <input type="text" name="AGE" placeholder="AGE (Proportion of old units)" required>
+        <input type="text" name="DIS" placeholder="DIS (Distance to employment centres)" required>
+        <input type="text" name="RAD" placeholder="RAD (Highway access index)" required>
+        <input type="text" name="TAX" placeholder="TAX (Property tax rate)" required>
+        <input type="text" name="PTRATIO" placeholder="PTRATIO (Pupil-teacher ratio)" required>
+        <input type="text" name="B" placeholder="B (1000*(Bk - 0.63)^2)" required>
+        <input type="text" name="LSTAT" placeholder="LSTAT (% lower status population)" required>
+
+        <button type="submit">Predict Price</button>
+    </form>
+
+    <br>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+
+</body>
+</html>
